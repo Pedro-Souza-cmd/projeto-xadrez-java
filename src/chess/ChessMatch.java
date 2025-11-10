@@ -25,10 +25,15 @@ public class ChessMatch {
 		 return mat;
 	}
 	
+	// Método responsavel por por uma peça nova no tabuleiro
+	private void placeNewPiece(char column, int row, ChessPiece piece) {
+		board.placePiece(piece, new ChessPosition(column, row).toPosition());
+	}
+	
 	//Método responsavel por iniciar a partida
 	private void initialSetup() {
-		board.placePiece(new Rook(board, Color.WHITE), new Position(2,1));
-		board.placePiece(new King(board, Color.BLACK), new Position(0,4));
+		placeNewPiece('b', 6 ,new Rook(board, Color.WHITE));
+		placeNewPiece('b', 5, new King(board, Color.BLACK));
 	}
 
 }
